@@ -16,7 +16,7 @@
         rel="stylesheet" href="https://kikuchi-et-al.github.io/css/github.css" />
     <meta name="viewport" content="width=device-width">
 
-    <title>Starting Demo - Kikuchi Labo</title>
+    <title>direnvの設定方法 - Kikuchi Labo</title>
 
     <link rel="icon" type="image/x-icon" class="js-site-favicon" href="https://kikuchi-et-al.github.io/images/favicon.ico">
     <meta name="theme-color" content="#1e2327">
@@ -106,7 +106,7 @@ if (!doNotTrack) {
                                     href="https://kikuchi-et-al.github.io/">Nobuaki Kikuchi</a></span>
                             <span class="path-divider">/</span>
                             <strong itemprop="name" class="css-truncate-target" style="max-width: 410px"><a
-                                    href="https://kikuchi-et-al.github.io/post/starting-demo/">Starting Demo</a></strong>
+                                    href="https://kikuchi-et-al.github.io/post/starting-demo/">direnvの設定方法</a></strong>
 
                             <div class="d-block text-small text-gray">
                                 Created <time-ago datetime="2020-01-02" class="no-wrap"
@@ -130,13 +130,83 @@ if (!doNotTrack) {
                     <div class="Box mt-3 position-relative">
                         <div class="Box-header py-2 d-flex flex-column flex-shrink-0 flex-md-row flex-md-items-center">
                             <div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0">
-                                2 Words
+                                1249 Words
                                 
                             </div>
                         </div>
 
                         <div id="readme" class="Box-body readme blob instapaper_body js-code-block-container">
-                            <article class="markdown-body entry-content p-3 p-md-6" itemprop="text"><p>test page</p>
+                            <article class="markdown-body entry-content p-3 p-md-6" itemprop="text"><h2 id="direnv">direnvとは</h2>
+<p>ディレクトリ毎に環境変数を定義し特定のディレクトリに移動したときのみ環境変数を有効化できるツール。</p>
+<h2 id="heading">ユースケース</h2>
+<p>ディレクトリ毎にIAMユーザーのアクセスキーとシークレットキーを設定することで、ディレクトリに移動してきたタイミングで自動でこれらのキーを環境変数として設定することができ、AWS CLIを実行できる環境を素早く用意することができる。</p>
+<h2 id="heading-1">利点</h2>
+<p>例えば下記のようなディレクトリ構造があったとする。</p>
+<pre><code>direnv/
+　│
+　├ myoglobin/
+　│
+　└ hemoglobin/
+</code></pre><p>direnvを使って「myoglobin」というディレクトリに移動すると環境変数にmyoglobinというawsアカウントのアクセスキーとシークレットキーが設定されるようにしておく。</p>
+<p>一方、「hemoglobin」というディレクトリに移動すると環境変数にhemoglobinというawsアカウントのアクセスキーとシークレットキーが設定されるようにしておく。</p>
+<p>こうすることで、myoglobinとhemoglobi間のアカウントの切り替えをスムーズに行うことができる。</p>
+<p>逆にdirenvを設定しないとAWSアカウントの切り替えの度に環境変数を設定し直す必要がでてくる。</p>
+<h3 id="1-brewdirenv">1. brewコマンドでdirenvをインストール</h3>
+<pre><code>$ brew install direnv
+</code></pre><h3 id="2-whichdirenv">2. whichコマンドdirenvの存在確認</h3>
+<pre><code>$ which direnv
+/usr/local/bin/direnv
+</code></pre><h3 id="3--bashrc-">3. ホームディレクトリにある .bashrc を開く</h3>
+<pre><code>$ vi ~/.bashrc
+</code></pre><h3 id="4-bashrc">4. .bashrcの最下行に下記を追加</h3>
+<pre><code>eval &quot;$(direnv hook bash)&quot;
+</code></pre><h3 id="5-">5. 設定反映</h3>
+<pre><code>$ source ~/.bashrc
+</code></pre><h3 id="6-">6. ディレクトリを作成して移動</h3>
+<pre><code>$ mkdir ~/direnv
+$ cd direnv
+</code></pre><h3 id="7-aws-configure">7. aws configureを設定</h3>
+<pre><code>$ aws configure --profile AWSアカウント名
+</code></pre><h3 id="8-">8. アクセスキー・シークレットキーを入力</h3>
+<p>【入力例】</p>
+<pre><code>AWS Access Key ID [None]:xxxxxxxxxx
+AWS Secret Access Key [None]:yyyyyyyyyy
+Default region name [None]:ap-northeast-1 ←&lt;そのままenter&gt; 入れてもOK
+Default output format [None]:ここは空欄でもOK
+</code></pre><h3 id="9-">9. 情報を取得できるか確認</h3>
+<p>下記のように出力されていればOK。</p>
+<pre><code>$ aws sts get-caller-identity --profile AWSアカウント名
+{
+    &quot;Account&quot;: &quot;アカウントID&quot;,
+    &quot;UserId&quot;: &quot;XXXXXXXXXXXXXXX&quot;,
+    &quot;Arn&quot;: &quot;arn:aws:iam::アカウントID:user/IAMユーザー名&quot;
+}
+</code></pre><h3 id="10-">10. アカウント用のディレクトリを作成し移動</h3>
+<pre><code>$ mkdir AWSアカウント名
+$ cd AWSアカウント名
+</code></pre><h3 id="11-envrc-">11. アカウント用のディレクトリに移動後.envrc を作成</h3>
+<pre><code>$ vi .envrc
+</code></pre><h3 id="12-envrc">12. .envrcの中に下記内容を入力</h3>
+<pre><code>export AWS_DEFAULT_PROFILE=手順7で設定したAWSアカウント名
+export AWS_PROFILE=$AWS_DEFAULT_PROFILE
+export AWS_REGION=リージョン名
+</code></pre><h3 id="13-envrc">13. .envrcの設定が完了すると下記メッセージが表示される</h3>
+<pre><code>direnv: error .envrc is blocked. Run `direnv allow` to approve its content.
+</code></pre><p><code>direnv allow</code> と入力し下記のように表示されればOK</p>
+<pre><code>$ direnv allow
+direnv: loading .envrc
+direnv: export +AWS_DEFAULT_PROFILE +AWS_PROFILE +AWS_REGION
+</code></pre><h3 id="14-">14. もう一度ホームディレクトリに戻り再度アカウント用ディレクトリに移動</h3>
+<p>【入力例】</p>
+<pre><code>$ cd ~/
+direnv: unloading
+$ cd ~/direnv/AWSアカウント名/
+direnv: loading .envrc
+direnv: export +AWS_DEFAULT_PROFILE +AWS_PROFILE +AWS_REGION
+</code></pre><p>上記のように表示されればOK</p>
+<h3 id="15-">15. 動作確認</h3>
+<p><code>aws sts get-caller-identity</code> コマンドで設定内容が意図したものであるか確認する。</p>
+<p>CLI実行前には <code>aws ec2 describe-instances --region ap-northeast-1</code> コマンド等で対象アカウント内のリソース情報が表示されていることを確認し、作業対象が間違っていないことを必ず確認すること。</p>
 </article>
                         </div>
                     </div>
