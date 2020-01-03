@@ -12,10 +12,10 @@
     
     <item>
       <title>direnvの設定方法</title>
-      <link>https://kikuchi-et-al.github.io/post/starting-demo/</link>
+      <link>https://kikuchi-et-al.github.io/post/how_to_set_direnv/</link>
       <pubDate>Thu, 02 Jan 2020 16:34:37 +0900</pubDate>
       
-      <guid>https://kikuchi-et-al.github.io/post/starting-demo/</guid>
+      <guid>https://kikuchi-et-al.github.io/post/how_to_set_direnv/</guid>
       <description>direnvとは ディレクトリ毎に環境変数を定義し特定のディレクトリに移動したときのみ環境変数を有効化できるツール。
 ユースケース ディレクトリ毎にIAMユーザーのアクセスキーとシークレットキーを設定することで、ディレクトリに移動してきたタイミングで自動でこれらのキーを環境変数として設定することができ、AWS CLIを実行できる環境を素早く用意することができる。
 利点 例えば下記のようなディレクトリ構造があったとする。

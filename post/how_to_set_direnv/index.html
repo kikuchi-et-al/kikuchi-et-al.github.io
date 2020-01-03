@@ -16,7 +16,7 @@
         rel="stylesheet" href="https://kikuchi-et-al.github.io/css/github.css" />
     <meta name="viewport" content="width=device-width">
 
-    <title>Posts - Kikuchi Labo</title>
+    <title>direnvの設定方法 - Kikuchi Labo</title>
 
     <link rel="icon" type="image/x-icon" class="js-site-favicon" href="https://kikuchi-et-al.github.io/images/favicon.ico">
     <meta name="theme-color" content="#1e2327">
@@ -88,156 +88,144 @@ if (!doNotTrack) {
 </div>
 
   
-<div class="application-main " data-commit-hovercards-enabled>
-    <main id="js-pjax-container" data-pjax-container>
-        <div class="container-xl clearfix px-3 mt-4">
+<div class="application-main " data-commit-hovercards-enabled="">
+    <div itemscope="" itemtype="http://schema.org/SoftwareSourceCode" class="">
+        <main id="js-repo-pjax-container" data-pjax-container="">
+            <div class="pagehead repohead instapaper_ignore readability-menu experiment-repo-nav pt-0 pt-lg-4 ">
+                <div class="repohead-details-container clearfix container-lg p-responsive d-none d-lg-block">
+                    <div class="mb-3 d-flex">
+                        <h1 class="public css-truncate float-none flex-auto width-fit pl-0">
+                            <a class="avatar mr-1" href="https://kikuchi-et-al.github.io/about/">
+                            
 
-            <div class="h-card col-lg-3 col-md-4 col-12 float-md-left pr-md-3 pr-xl-6" itemscope
-    itemtype="http://schema.org/Person">
-    <div class="user-profile-sticky-bar js-user-profile-sticky-bar">
-    </div>
-    <div class="clearfix mb-2">
-        <div class="float-left col-3 col-md-12 pr-3 pr-md-0">
-            
-            <a itemprop="image" class="u-photo d-block position-relative" aria-hidden="true"
-                href="/images/kiccoro.jpg">
-                <img alt="" width="260" height="260"
-                    class="avatar width-full height-full rounded-2" src="/images/kiccoro.jpg" />
-            </a>
-            
-        </div>
-        <div class="float-left col-9 col-md-12 pl-2 pl-md-0">
+                                <img
+                                    src="/images/kiccoro.jpg" width="26" height="26">
+                            
+                            </a>
+                            <span class="author"><a
+                                    href="https://kikuchi-et-al.github.io/">Nobuaki Kikuchi</a></span>
+                            <span class="path-divider">/</span>
+                            <strong itemprop="name" class="css-truncate-target" style="max-width: 410px"><a
+                                    href="https://kikuchi-et-al.github.io/post/how_to_set_direnv/">direnvの設定方法</a></strong>
 
-            <div class="vcard-names-container pt-1 pt-md-3 pb-1 pb-md-3 js-sticky js-user-profile-sticky-fields">
-                <h1 class="vcard-names">
-                    <span class="p-name vcard-fullname d-block overflow-hidden"
-                        itemprop="name">Nobuaki Kikuchi</span>
-                    <span class="p-nickname vcard-username d-block"
-                        itemprop="additionalName">kikuchi-et-al</span>
-                </h1>
+                            <div class="d-block text-small text-gray">
+                                Created <time-ago datetime="2020-01-02" class="no-wrap"
+                                    title="Created at 2020/01/02">
+                                    2020-01-02</time-ago>
+                                <span class="file-info-divider"></span>
+                                Modifyed <time-ago datetime="2020-01-02" class="no-wrap"
+                                    title="Modifyed  at 2020/01/02">
+                                    2020-01-02</time-ago>
+                            </div>
+                        </h1>
+                    </div>
+                </div>
+
+
+
+
             </div>
+            <div class="container-lg clearfix new-discussion-timeline experiment-repo-nav  p-responsive">
+                <div class="repository-content ">
+                    <div class="Box mt-3 position-relative">
+                        <div class="Box-header py-2 d-flex flex-column flex-shrink-0 flex-md-row flex-md-items-center">
+                            <div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0">
+                                1249 Words
+                                
+                            </div>
+                        </div>
 
-            
-            <div class="user-profile-following-container js-user-profile-following-toggle mb-3">
-                <span class="user-following-container js-toggler-container js-social-container">
-                    <span class="follow">
-                        <input type="button" style="max-width: 100%" value="Follow"
-                            class="btn btn-block top-0 js-sticky js-user-profile-follow-button mb-2  js-toggler-target"
-                            title="Follow" onclick="window.location.href = 'https://github.com/kikuchi-et-al'" />
-                    </span>
-                    <span class="unfollow">
-                        <input type="button" style="max-width: 100%" value="Unfollow"
-                            class="btn btn-block top-0 js-sticky js-user-profile-follow-button mb-2  js-toggler-target"
-                            title="Unfollow" onclick="window.location.href = 'https://github.com/kikuchi-et-al'" />
-                    </span>
-                </span>
-            </div>
-            
-
-            <div class="d-none d-md-block">
-                <div class="js-profile-editable-area">
-                    <div class="p-note user-profile-bio js-user-profile-bio">
-                        <div>My blog</div>
+                        <div id="readme" class="Box-body readme blob instapaper_body js-code-block-container">
+                            <article class="markdown-body entry-content p-3 p-md-6" itemprop="text"><h2 id="direnv">direnvとは</h2>
+<p>ディレクトリ毎に環境変数を定義し特定のディレクトリに移動したときのみ環境変数を有効化できるツール。</p>
+<h2 id="heading">ユースケース</h2>
+<p>ディレクトリ毎にIAMユーザーのアクセスキーとシークレットキーを設定することで、ディレクトリに移動してきたタイミングで自動でこれらのキーを環境変数として設定することができ、AWS CLIを実行できる環境を素早く用意することができる。</p>
+<h2 id="heading-1">利点</h2>
+<p>例えば下記のようなディレクトリ構造があったとする。</p>
+<pre><code>direnv/
+　│
+　├ myoglobin/
+　│
+　└ hemoglobin/
+</code></pre><p>direnvを使って「myoglobin」というディレクトリに移動すると環境変数にmyoglobinというawsアカウントのアクセスキーとシークレットキーが設定されるようにしておく。</p>
+<p>一方、「hemoglobin」というディレクトリに移動すると環境変数にhemoglobinというawsアカウントのアクセスキーとシークレットキーが設定されるようにしておく。</p>
+<p>こうすることで、myoglobinとhemoglobi間のアカウントの切り替えをスムーズに行うことができる。</p>
+<p>逆にdirenvを設定しないとAWSアカウントの切り替えの度に環境変数を設定し直す必要がでてくる。</p>
+<h3 id="1-brewdirenv">1. brewコマンドでdirenvをインストール</h3>
+<pre><code>$ brew install direnv
+</code></pre><h3 id="2-whichdirenv">2. whichコマンドdirenvの存在確認</h3>
+<pre><code>$ which direnv
+/usr/local/bin/direnv
+</code></pre><h3 id="3--bashrc-">3. ホームディレクトリにある .bashrc を開く</h3>
+<pre><code>$ vi ~/.bashrc
+</code></pre><h3 id="4-bashrc">4. .bashrcの最下行に下記を追加</h3>
+<pre><code>eval &quot;$(direnv hook bash)&quot;
+</code></pre><h3 id="5-">5. 設定反映</h3>
+<pre><code>$ source ~/.bashrc
+</code></pre><h3 id="6-">6. ディレクトリを作成して移動</h3>
+<pre><code>$ mkdir ~/direnv
+$ cd direnv
+</code></pre><h3 id="7-aws-configure">7. aws configureを設定</h3>
+<pre><code>$ aws configure --profile AWSアカウント名
+</code></pre><h3 id="8-">8. アクセスキー・シークレットキーを入力</h3>
+<p>【入力例】</p>
+<pre><code>AWS Access Key ID [None]:xxxxxxxxxx
+AWS Secret Access Key [None]:yyyyyyyyyy
+Default region name [None]:ap-northeast-1 ←&lt;そのままenter&gt; 入れてもOK
+Default output format [None]:ここは空欄でもOK
+</code></pre><h3 id="9-">9. 情報を取得できるか確認</h3>
+<p>下記のように出力されていればOK。</p>
+<pre><code>$ aws sts get-caller-identity --profile AWSアカウント名
+{
+    &quot;Account&quot;: &quot;アカウントID&quot;,
+    &quot;UserId&quot;: &quot;XXXXXXXXXXXXXXX&quot;,
+    &quot;Arn&quot;: &quot;arn:aws:iam::アカウントID:user/IAMユーザー名&quot;
+}
+</code></pre><h3 id="10-">10. アカウント用のディレクトリを作成し移動</h3>
+<pre><code>$ mkdir AWSアカウント名
+$ cd AWSアカウント名
+</code></pre><h3 id="11-envrc-">11. アカウント用のディレクトリに移動後.envrc を作成</h3>
+<pre><code>$ vi .envrc
+</code></pre><h3 id="12-envrc">12. .envrcの中に下記内容を入力</h3>
+<pre><code>export AWS_DEFAULT_PROFILE=手順7で設定したAWSアカウント名
+export AWS_PROFILE=$AWS_DEFAULT_PROFILE
+export AWS_REGION=リージョン名
+</code></pre><h3 id="13-envrc">13. .envrcの設定が完了すると下記メッセージが表示される</h3>
+<pre><code>direnv: error .envrc is blocked. Run `direnv allow` to approve its content.
+</code></pre><p><code>direnv allow</code> と入力し下記のように表示されればOK</p>
+<pre><code>$ direnv allow
+direnv: loading .envrc
+direnv: export +AWS_DEFAULT_PROFILE +AWS_PROFILE +AWS_REGION
+</code></pre><h3 id="14-">14. もう一度ホームディレクトリに戻り再度アカウント用ディレクトリに移動</h3>
+<p>【入力例】</p>
+<pre><code>$ cd ~/
+direnv: unloading
+$ cd ~/direnv/AWSアカウント名/
+direnv: loading .envrc
+direnv: export +AWS_DEFAULT_PROFILE +AWS_PROFILE +AWS_REGION
+</code></pre><p>上記のように表示されればOK</p>
+<h3 id="15-">15. 動作確認</h3>
+<p><code>aws sts get-caller-identity</code> コマンドで設定内容が意図したものであるか確認する。</p>
+<p>CLI実行前には <code>aws ec2 describe-instances --region ap-northeast-1</code> コマンド等で対象アカウント内のリソース情報が表示されていることを確認し、作業対象が間違っていないことを必ず確認すること。</p>
+</article>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div class="border-top py-3 clearfix hide-sm hide-md">
-                <h2 class="mb-1 h4">Organizations</h2>
-
-                
-                <a class="avatar-group-item" data-hovercard-type="organization"
-                    href="https://github.com/kikuchi-et-al">
-                    <img src="https://kikuchi-et-al.github.io/images/github.png" class="avatar" width="35" height="35">
-                </a>
-                
-                
-                <a class="avatar-group-item" data-hovercard-type="organization"
-                    href="https://twitter.com/kikuchi-et-al">
-                    <img src="https://kikuchi-et-al.github.io/images/twitter.png" class="avatar" width="35" height="35">
-                </a>
-                
-                
-                <a class="avatar-group-item" data-hovercard-type="organization"
-                    href="https://ja-jp.facebook.com/nobuaki.kikuchi.14">
-                    <img src="https://kikuchi-et-al.github.io/images/facebook.png" class="avatar" width="35" height="35">
-                </a>
-                
-            </div>
-
-            <div data-test-selector="profile-sponsorships">
-            </div>
-        </div>
+        </main>
     </div>
 </div>
 
-
-            
-
-
-
-<div class="col-lg-9 col-md-8 col-12 float-md-left pl-md-2">
-    <div class="UnderlineNav width-full user-profile-nav top-0 is-placeholder"
-        style="visibility: hidden; display: none; height: 56px;"></div>
-    <div class="UnderlineNav width-full user-profile-nav js-sticky top-0"
-        style="position: static; top: 0px; left: 330.5px; width: 911.5px;">
-        <nav class="UnderlineNav-body" data-pjax aria-label="User profile">
-            <a aria-current="page" class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 " href="https://kikuchi-et-al.github.io/">
-                Overview
-            </a>
-            <a class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 selected" href="https://kikuchi-et-al.github.io/post/">
-                Posts
-                <span class="Counter hide-lg hide-md hide-sm">
-                    1
-                </span>
-            </a>
-            <a class="UnderlineNav-item mr-0 mr-md-1 mr-lg-3 " href="https://kikuchi-et-al.github.io/about/">
-                About
-            </a>
-        </nav>
-    </div>
-
-    <div class="position-relative">
-        <div id="user-repositories-list">
-            <ul data-filterable-for="your-repos-filter" data-filterable-type="substring">
-                
-                <li class="col-12 d-flex width-full py-4 border-bottom public fork">
-                    <div class="col-12 col-lg-12 d-inline-block">
-                        <div class="d-inline-block mb-1">
-                            <h3>
-                                <a href="https://kikuchi-et-al.github.io/post/how_to_set_direnv/">direnvの設定方法</a>
-                            </h3>
-                        </div>
-
-                        <div name="posts-post">
-                            direnvとは ディレクトリ毎に環境変数を定義し特定のディレクトリに移動したときのみ環境変数を有効化できるツール。
-ユースケース ディレクトリ毎にIAMユーザーのアクセスキーとシークレットキーを設定することで、ディレクトリに移動してきたタイミングで自動でこれらのキーを環境変数として設定することができ、AWS CLIを実行できる環境を素早く用意することができる。
-利点 例えば下記のようなディレクトリ構造があったとする。
-direnv/ │ ├ myoglobin/ │ └ hemoglobin/ direnvを使って「myoglobin」というディレクトリに移動すると環境変数にmyoglobinというawsアカウントのアクセスキーとシークレットキーが設定されるようにしておく。
-一方、「hemoglobin」というディレクトリに移動すると環境変数にhemoglobinというawsアカウントのアクセスキーとシークレットキーが設定されるようにしておく。
-こうすることで、myoglobinとhemoglobi間のアカウントの切り替えをスムーズに行うことができる。
-逆にdirenvを設定しないとAWSアカウントの切り替えの度に環境変数を設定し直す必要がでてくる。
-1. brewコマンドでdirenvをインストール $ brew install direnv 2. whichコマンドdirenvの存在確認 $ which direnv /usr/local/bin/direnv 3. ホームディレクトリにある .bashrc を開く $ vi ~/.bashrc 4. .bashrcの最下行に下記を追加 eval &quot;$(direnv hook bash)&quot; 5. 設定反映 $ source ~/.bashrc 6. ディレクトリを作成して移動 $ mkdir ~/direnv $ cd direnv 7. aws configureを設定 $ aws configure --profile AWSアカウント名 8. アクセスキー・シークレットキーを入力 【入力例】
-AWS Access Key ID [None]:xxxxxxxxxx AWS Secret Access Key [None]:yyyyyyyyyy Default region name [None]:ap-northeast-1 ←&lt;そのままenter&gt; 入れてもOK Default output format [None]:ここは空欄でもOK 9.
-                        </div>
-
-                        <div class="f6 text-gray mt-2">
-                            Updated <relative-time datetime="2020-01-02" class="no-wrap"
-                                title="Modifyd at 2020/01/02">
-                                January 2, 2020</relative-time>
-                        </div>
-                    </div>
-                </li>
-                
-            </ul>
-            
-        </div>
-    </div>
-</div>
+<div class="utterances"></div>
+<script src="https://utteranc.es/client.js"
+        repo="kikuchi-et-al/kikuchi-et-al.github.io"
+        issue-term="title"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
 
 
-    </main>
-</div>
 
   <div class="footer container-lg width-full p-responsive" role="contentinfo">
     <div
