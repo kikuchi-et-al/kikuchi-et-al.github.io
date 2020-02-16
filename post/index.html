@@ -210,15 +210,10 @@ if (!doNotTrack) {
                         </div>
 
                         <div name="posts-post">
-                            direnvとは ディレクトリ毎に環境変数を定義し特定のディレクトリに移動したときのみ環境変数を有効化できるツール。
-ユースケース ディレクトリ毎にIAMユーザーのアクセスキーとシークレットキーを設定することで、ディレクトリに移動してきたタイミングで自動でこれらのキーを環境変数として設定することができ、AWS CLIを実行できる環境を素早く用意することができる。
-利点 例えば下記のようなディレクトリ構造があったとする。
-direnv/ │ ├ myoglobin/ │ └ hemoglobin/ direnvを使って「myoglobin」というディレクトリに移動すると環境変数にmyoglobinというawsアカウントのアクセスキーとシークレットキーが設定されるようにしておく。
-一方、「hemoglobin」というディレクトリに移動すると環境変数にhemoglobinというawsアカウントのアクセスキーとシークレットキーが設定されるようにしておく。
-こうすることで、myoglobinとhemoglobi間のアカウントの切り替えをスムーズに行うことができる。
-逆にdirenvを設定しないとAWSアカウントの切り替えの度に環境変数を設定し直す必要がでてくる。
-1. brewコマンドでdirenvをインストール $ brew install direnv 2. whichコマンドdirenvの存在確認 $ which direnv /usr/local/bin/direnv 3. ホームディレクトリにある .bashrc を開く $ vi ~/.bashrc 4. .bashrcの最下行に下記を追加 eval &quot;$(direnv hook bash)&quot; 5. 設定反映 $ source ~/.bashrc 6. ディレクトリを作成して移動 $ mkdir ~/direnv $ cd direnv 7. aws configureを設定 $ aws configure --profile AWSアカウント名 8. アクセスキー・シークレットキーを入力 【入力例】
-AWS Access Key ID [None]:xxxxxxxxxx AWS Secret Access Key [None]:yyyyyyyyyy Default region name [None]:ap-northeast-1 ←&lt;そのままenter&gt; 入れてもOK Default output format [None]:ここは空欄でもOK 9.
+                            <h2 id="direnv">direnvとは</h2>
+<p>ディレクトリ毎に環境変数を定義し特定のディレクトリに移動したときのみ環境変数を有効化できるツール。</p>
+<h2 id="heading">ユースケース</h2>
+<p>ディレクトリ毎にIAMユーザーのアクセスキーとシークレットキーを設定することで、ディレクトリに移動してきたタイミングで自動でこれらのキーを環境変数として設定することができ、AWS CLIを実行できる環境を素早く用意することができる。</p>
                         </div>
 
                         <div class="f6 text-gray mt-2">
