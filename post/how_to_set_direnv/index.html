@@ -130,27 +130,16 @@ if (!doNotTrack) {
                     <div class="Box mt-3 position-relative">
                         <div class="Box-header py-2 d-flex flex-column flex-shrink-0 flex-md-row flex-md-items-center">
                             <div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0">
-                                1249 Words
+                                1064 Words
                                 
                             </div>
                         </div>
 
                         <div id="readme" class="Box-body readme blob instapaper_body js-code-block-container">
-                            <article class="markdown-body entry-content p-3 p-md-6" itemprop="text"><h2 id="direnv">direnvとは</h2>
-<p>ディレクトリ毎に環境変数を定義し特定のディレクトリに移動したときのみ環境変数を有効化できるツール。</p>
-<h2 id="heading">ユースケース</h2>
-<p>ディレクトリ毎にIAMユーザーのアクセスキーとシークレットキーを設定することで、ディレクトリに移動してきたタイミングで自動でこれらのキーを環境変数として設定することができ、AWS CLIを実行できる環境を素早く用意することができる。</p>
-<h2 id="heading-1">利点</h2>
-<p>例えば下記のようなディレクトリ構造があったとする。</p>
-<pre><code>direnv/
-　│
-　├ myoglobin/
-　│
-　└ hemoglobin/
-</code></pre><p>direnvを使って「myoglobin」というディレクトリに移動すると環境変数にmyoglobinというawsアカウントのアクセスキーとシークレットキーが設定されるようにしておく。</p>
-<p>一方、「hemoglobin」というディレクトリに移動すると環境変数にhemoglobinというawsアカウントのアクセスキーとシークレットキーが設定されるようにしておく。</p>
-<p>こうすることで、myoglobinとhemoglobi間のアカウントの切り替えをスムーズに行うことができる。</p>
+                            <article class="markdown-body entry-content p-3 p-md-6" itemprop="text"><p>direnvとはディレクトリ毎に環境変数を定義し特定のディレクトリに移動したときのみ環境変数を有効化できるツールである。</p>
+<p>例えばAWSアカウントのアクセスキー/シークレットキーの情報をディレクトリ毎を設定することで、ディレクトリに移動してきたタイミングで自動でこれらのキーを環境変数として設定することができ、AWS CLIを実行できる環境を素早く用意することができる。</p>
 <p>逆にdirenvを設定しないとAWSアカウントの切り替えの度に環境変数を設定し直す必要がでてくる。</p>
+<p>この記事ではディレクトリ毎にAWSアカウントのアクセスキー/シークレットキーの情報を登録し、実際にAWS CLIを実行できる環境を用意する方法を説明する。</p>
 <h3 id="1-brewdirenv">1. brewコマンドでdirenvをインストール</h3>
 <pre><code>$ brew install direnv
 </code></pre><h3 id="2-whichdirenv">2. whichコマンドdirenvの存在確認</h3>

@@ -16,10 +16,10 @@
       <pubDate>Thu, 02 Jan 2020 16:34:37 +0900</pubDate>
       
       <guid>https://kikuchi-et-al.github.io/post/how_to_set_direnv/</guid>
-      <description>&lt;h2 id=&#34;direnv&#34;&gt;direnvとは&lt;/h2&gt;
-&lt;p&gt;ディレクトリ毎に環境変数を定義し特定のディレクトリに移動したときのみ環境変数を有効化できるツール。&lt;/p&gt;
-&lt;h2 id=&#34;heading&#34;&gt;ユースケース&lt;/h2&gt;
-&lt;p&gt;ディレクトリ毎にIAMユーザーのアクセスキーとシークレットキーを設定することで、ディレクトリに移動してきたタイミングで自動でこれらのキーを環境変数として設定することができ、AWS CLIを実行できる環境を素早く用意することができる。&lt;/p&gt;</description>
+      <description>&lt;p&gt;direnvとはディレクトリ毎に環境変数を定義し特定のディレクトリに移動したときのみ環境変数を有効化できるツールである。&lt;/p&gt;
+&lt;p&gt;例えばAWSアカウントのアクセスキー/シークレットキーの情報をディレクトリ毎を設定することで、ディレクトリに移動してきたタイミングで自動でこれらのキーを環境変数として設定することができ、AWS CLIを実行できる環境を素早く用意することができる。&lt;/p&gt;
+&lt;p&gt;逆にdirenvを設定しないとAWSアカウントの切り替えの度に環境変数を設定し直す必要がでてくる。&lt;/p&gt;
+&lt;p&gt;この記事ではディレクトリ毎にAWSアカウントのアクセスキー/シークレットキーの情報を登録し、実際にAWS CLIを実行できる環境を用意する方法を説明する。&lt;/p&gt;</description>
     </item>
     
     <item>
